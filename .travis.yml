@@ -18,9 +18,10 @@ before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 install:
+- npm install -g angular-cli
 - (cd frontend && npm install)
 script:
-- (cd frontend && npm test)
+- (cd frontend && ng test --watch=false)
 notifications:
   email:
   - stollenwerk@kitconcept.com
