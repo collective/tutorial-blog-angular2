@@ -4,11 +4,16 @@ Tutorial Blog Angular 2
 Todo
 ----
 
- [ ] Plone Buildout with CORS
- [ ] CLI configuration
- [ ] Initial frontend project structure
- [ ] Test Setup Unit / Protractor
- [ ] Travis configuration
+Basic:
+
+ [ ] Plone Buildout with CORS (victor)
+ [ ] CLI configuration (eric/timo)
+ [ ] Initial frontend project structure (eric/timo)
+ [ ] Test Setup Unit / Protractor (timo)
+ [ ] Travis configuration (timo)
+
+Implementation:
+
  [ ] Login
  [ ] Blog Content Type (Title, Description, RichText)
  [ ] Main Page View/Route
