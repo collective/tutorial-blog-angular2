@@ -22,6 +22,8 @@ install:
 - (cd frontend && npm install)
 script:
 - (cd frontend && ng test --watch=false)
+- (cd frontend && ng serve &)
+- (cd frontend && ng e2e)
 notifications:
   email:
   - stollenwerk@kitconcept.com
