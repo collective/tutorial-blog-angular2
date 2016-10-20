@@ -24,8 +24,8 @@ script:
 - (cd frontend && ng lint)
 - (cd frontend && ng test --watch=false)
 - (cd backend && sudo python bootstrap-buildout.py)
-- backend/bin/buildout
-- backend/bin/instance fg &
+- (cd backend && bin/buildout)
+- (cd backend && bin/instance fg &)
 - (cd frontend && ng serve &)
 - (cd frontend && ng e2e)
 notifications:
