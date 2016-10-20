@@ -27,4 +27,4 @@ script:
 - (cd frontend && ng e2e)
 notifications:
   email:
-  - stollenwerk@kitconcept.com
+  - tisto@plone.org, ebrehault@gmail.com, ramon.nb@gmail.com, sneridagh@gmail.com
