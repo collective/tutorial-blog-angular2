@@ -1,0 +1,6 @@
+eggs/
+parts/
+var/
+bin/
+.installed.cfg
+
