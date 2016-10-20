@@ -21,6 +21,7 @@ install:
 - npm install -g angular-cli
 - (cd frontend && npm install)
 script:
+- (cd frontend && ng lint)
 - (cd frontend && ng test --watch=false)
 - (cd frontend && ng serve &)
 - (cd frontend && ng e2e)
