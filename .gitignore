@@ -1,4 +1,8 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+eggs/
+parts/
+var/
+bin/
+.installed.cfg
 
 # compiled output
 /frontend/dist
