@@ -21,9 +21,7 @@ export class HomeComponent implements OnInit {
       {
         'id': 2,
         'title': 'Continuous Integration for Plone',
-        'description': 'How we set up a new distributed Continuous Integration ' +
-                       'infrastructure for Plone with Jenkins, Ansible, Jenkins ' +
-                       'Job Builder, and mr.roboto.';
+        'description': 'How we set up a new distributed Continuous Integration...'
       }
     ];
   }
