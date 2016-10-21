@@ -1,1 +1,8 @@
-<p>All the last posts</p>
+<div class="mdl-grid" *ngFor="let blogPost of blogPosts">
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+  <div class="mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+    <h3>{{blogPost.title}}</h3>
+    <p>{{blogPost.description}}</p>
+  </div>
+  <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+</div>

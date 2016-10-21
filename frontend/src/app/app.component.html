@@ -1,2 +1,48 @@
-<h1>My blog</h1>
-<router-outlet></router-outlet>
+<div class="mdl-layout mdl-js-layout">
+
+  <!-- HEADER -->
+  <header class="mdl-layout__header mdl-layout__header--scroll">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Angular 2 Blog</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">One</a>
+        <a class="mdl-navigation__link" href="">Two</a>
+        <a class="mdl-navigation__link" href="">Three</a>
+        <a class="mdl-navigation__link" href="">Four</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">One</a>
+      <a class="mdl-navigation__link" href="">Two</a>
+      <a class="mdl-navigation__link" href="">Three</a>
+      <a class="mdl-navigation__link" href="">Four</a>
+    </nav>
+  </div>
+
+  <!-- MAIN -->
+  <main class="mdl-layout__content">
+
+    <router-outlet></router-outlet>
+
+    <!-- FOOTER -->
+    <footer class="mdl-mini-footer">
+      <div class="mdl-mini-footer__left-section">
+        <div class="mdl-logo">Angular 2 Blog</div>
+        <ul class="mdl-mini-footer__link-list">
+          <li><a href="#">Help</a></li>
+          <li><a href="#">Privacy &amp; Terms</a></li>
+        </ul>
+      </div>
+    </footer>
+  </main>
+
+</div>
