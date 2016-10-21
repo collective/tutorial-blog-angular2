@@ -9,8 +9,8 @@ bin/
 /frontend/tmp
 
 # dependencies
-/frontend/node_modules
-/frontend/bower_components
+node_modules
+bower_components
 
 # IDEs and editors
 /frontend/.idea
@@ -36,3 +36,4 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
+
