@@ -15,3 +15,27 @@ header.mdl-layout__header--scroll {
 .demo-card-wide > .mdl-card__menu {
   color: #fff;
 }
+
+.android-be-together-section {
+  position: relative;
+  height: 800px;
+  width: auto;
+  background-color: #f3f3f3;
+  background: url('https://kitconcept.com/sunrise.jpg') center 30% no-repeat;
+  background-size: cover;
+}
+
+.android-slogan {
+  font-size: 60px;
+  padding-top: 160px;
+}
+
+.android-sub-slogan {
+  font-size: 21px;
+  padding-top: 24px;
+}
+
+.blog-content {
+  max-width: 800px;
+  margin: 2em auto;
+}
