@@ -10,11 +10,13 @@ import {
   routing,
   appRoutingProviders
 } from './app.routes.ts';
+import { BlogpostComponent } from './blogpost/blogpost.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    BlogpostComponent
   ],
   imports: [
     BrowserModule,

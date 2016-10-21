@@ -14,12 +14,14 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.blogPosts = [
       {
-        'title': 'Blog Post One',
-        'description': 'Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse.'
+        'id': 1,
+        'title': 'Getting Started With Plone Testing',
+        'description': 'bobtemplates.plone is a package skeleton generator that gives you an easy start with Plone testing.'
       },
       {
-        'title': 'Blog Post Two',
-        'description': 'Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse.'
+        'id': 2,
+        'title': 'Continuous Integration for Plone',
+        'description': 'How we set up a new distributed Continuous Integration infrastructure for Plone with Jenkins, Ansible, Jenkins Job Builder, and mr.roboto.'
       },
     ]
   }
