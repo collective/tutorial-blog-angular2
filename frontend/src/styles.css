@@ -39,3 +39,9 @@ header.mdl-layout__header--scroll {
   max-width: 800px;
   margin: 2em auto;
 }
+
+.plone-drawer .mdl-layout-title {
+  position: relative;
+  background: #454545;
+  height: 160px;
+}
