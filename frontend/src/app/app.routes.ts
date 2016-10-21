@@ -5,9 +5,9 @@ import { LoginComponent } from './login/login.component';
 import { BlogpostComponent } from './blogpost/blogpost.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'login', component: LoginComponent },
-    { path: ':path', component: BlogpostComponent }
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: ':path', component: BlogpostComponent }
 ];
 
 export const appRoutingProviders: any[] = [];
