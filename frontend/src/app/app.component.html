@@ -1,2 +1,97 @@
-<h1>My blog</h1>
-<router-outlet></router-outlet>
+<div class="mdl-layout mdl-js-layout">
+
+  <!-- HEADER -->
+  <header class="mdl-layout__header mdl-layout__header--scroll">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">
+        <img src="assets/plone-logo.svg" alt="Plone" />
+      </span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <a [routerLink]="['/']" class="mdl-navigation__link" href="/">Home</a>
+        <a [routerLink]="['/login']" class="mdl-navigation__link" href="login">Login</a>
+      </nav>
+      <!-- Search -->
+      <div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search-field">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <div class="plone-drawer mdl-layout__drawer">
+    <span class="mdl-layout-title">
+      <img src="assets/plone-logo.svg" alt="Plone" />
+    </span>
+    <nav class="mdl-navigation">
+      <a [routerLink]="['/']" class="mdl-navigation__link" href="/">Home</a>
+      <a [routerLink]="['/login']" class="mdl-navigation__link" href="login">Login</a>
+    </nav>
+  </div>
+
+  <!-- MAIN -->
+  <main class="mdl-layout__content">
+
+    <router-outlet></router-outlet>
+
+    <!-- FOOTER -->
+    <footer class="mdl-mega-footer">
+      <div class="mdl-mega-footer--middle-section">
+        <div class="mdl-mega-footer--drop-down-section">
+          <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+          <h1 class="mdl-mega-footer--heading">Plone Foundation</h1>
+          <ul class="mdl-mega-footer--link-list">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Partners</a></li>
+            <li><a href="#">Updates</a></li>
+          </ul>
+        </div>
+        <div class="mdl-mega-footer--drop-down-section">
+          <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+          <h1 class="mdl-mega-footer--heading">Support</h1>
+          <ul class="mdl-mega-footer--link-list">
+            <li><a href="#">Spec</a></li>
+            <li><a href="#">Tools</a></li>
+            <li><a href="#">Resources</a></li>
+          </ul>
+        </div>
+        <div class="mdl-mega-footer--drop-down-section">
+          <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+          <h1 class="mdl-mega-footer--heading">Downloads</h1>
+          <ul class="mdl-mega-footer--link-list">
+            <li><a href="#">How it works</a></li>
+            <li><a href="#">Patterns</a></li>
+            <li><a href="#">Usage</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contracts</a></li>
+          </ul>
+        </div>
+        <div class="mdl-mega-footer--drop-down-section">
+          <input class="mdl-mega-footer--heading-checkbox" type="checkbox" checked>
+          <h1 class="mdl-mega-footer--heading">Documentation</h1>
+          <ul class="mdl-mega-footer--link-list">
+            <li><a href="#">Questions</a></li>
+            <li><a href="#">Answers</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mdl-mega-footer--bottom-section">
+        <div class="mdl-logo">
+          <img src="assets/plone-logo.svg" alt="Plone" />
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+</div>

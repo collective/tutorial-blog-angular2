@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+header.mdl-layout__header--scroll {
+  background: #424242;
+}
+
+.demo-card-wide.mdl-card {
+  width: 80%;
+  margin: 2em auto;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('https://kitconcept.com/sunrise.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+.android-be-together-section {
+  position: relative;
+  height: 800px;
+  width: auto;
+  background-color: #f3f3f3;
+  background: url('https://kitconcept.com/sunrise.jpg') center 30% no-repeat;
+  background-size: cover;
+}
+
+.android-slogan {
+  font-size: 60px;
+  padding-top: 160px;
+}
+
+.android-sub-slogan {
+  font-size: 21px;
+  padding-top: 24px;
+}
+
+.blog-content {
+  max-width: 800px;
+  margin: 2em auto;
+}
+
+.plone-drawer .mdl-layout-title {
+  position: relative;
+  background: #454545;
+  height: 160px;
+}
+
+.plone-login {
+  margin: 2em auto;
+}
