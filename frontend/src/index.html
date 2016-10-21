@@ -4,11 +4,62 @@
   <meta charset="utf-8">
   <title>Frontend</title>
   <base href="/">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-  <app-root>Loading...</app-root>
+  <div class="mdl-layout mdl-js-layout">
+
+    <!-- HEADER -->
+    <header class="mdl-layout__header mdl-layout__header--scroll">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">Angular 2 Blog</span>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation -->
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="">One</a>
+          <a class="mdl-navigation__link" href="">Two</a>
+          <a class="mdl-navigation__link" href="">Three</a>
+          <a class="mdl-navigation__link" href="">Five</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Title</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">One</a>
+        <a class="mdl-navigation__link" href="">Two</a>
+        <a class="mdl-navigation__link" href="">Three</a>
+        <a class="mdl-navigation__link" href="">Five</a>
+      </nav>
+    </div>
+
+    <!-- MAIN -->
+    <main class="mdl-layout__content">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+        <div class="mdl-color--white content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+          <app-root>Loading...</app-root>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="mdl-mini-footer">
+        <div class="mdl-mini-footer__left-section">
+          <div class="mdl-logo">Angular 2 Blog</div>
+          <ul class="mdl-mini-footer__link-list">
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Privacy &amp; Terms</a></li>
+          </ul>
+        </div>
+      </footer>
+    </main>
+
+  </div>
 </body>
 </html>
