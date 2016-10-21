@@ -45,3 +45,7 @@ header.mdl-layout__header--scroll {
   background: #454545;
   height: 160px;
 }
+
+.plone-login {
+  margin: 2em auto;
+}
