@@ -1,15 +1,23 @@
+# Login tutorial
 
-Create application::
+> Note: this tutorial goes through the different steps needed to create a basic application displaying a login form able to authentify to the Plone REST API. If you run all those steps prperly, you should obtain a code similar to the one contained in the current folder.
 
+## Initialize the application
+
+Create application:
+```
   $ ng new login
+```
 
-Add the home component::
-
+Add the home component:
+```
   $ cd login
   $ ng g component home
+```
 
-app.module.ts::
+app.module.ts:
 
+```
   import { RouterModule } from '@angular/router';
 
   @NgModule({
@@ -23,26 +31,32 @@ app.module.ts::
       ])
     ...
   })
+```
 
-app.component.html::
-
+app.component.html:
+```
   <nav>
     <a routerLink="/">Home</a>
     <a routerLink="/login">Login</a>
   </nav>
   <router-outlet></router-outlet>
+```
 
-Add the login component::
+## Create the Login component
 
+Add the login component:
+```
   $ ng g component login
+```
 
 Every component created by the ng CLI has its own folder.
 A `./login` has been created containing the component `.ts` file, its `.css` style file, its `.html` template, and its `.spec.ts` test file.
 
 We need and extra file here to implement the login service.
 
-Go in the `./login` folder and create a `login.service.ts` file::
+Go in the `./login` folder and create a `login.service.ts` file:
 
+```
   import { Injectable } from '@angular/core';
   import { Http, Headers } from '@angular/http';
   import { Observable } from "rxjs/Observable";
@@ -90,6 +104,7 @@ Go in the `./login` folder and create a `login.service.ts` file::
       return this.loggedIn;
     }
   }
+```
 
 It provides a `login()` method which returns an observable (all HTTP calls are handled as observables in Angular 2).
 
@@ -99,8 +114,8 @@ In our current case, we parse the JSON returned by the backend, then we check if
 
 Now we can use our service in our Login component:
 
-login/login.component.ts::
-
+login/login.component.ts:
+```
   ...
 
   import { UserService } from './login.service';
@@ -132,6 +147,7 @@ login/login.component.ts::
       );
     }
   }
+```
 
 We make the service accessible from our component by declaring it in the `providers` list, and by adding it as a parameter in the constructor.
 
@@ -139,8 +155,8 @@ In the `onSubmit` method, we call the services's `login` method, and we subscrib
 
 The Login component template will just display a form that way:
 
-login/login.component.html::
-
+login/login.component.html:
+```
   <div class="mdl-card plone-login">
     <form #f="ngForm" (ngSubmit)="onSubmit()">
 
@@ -169,6 +185,7 @@ login/login.component.html::
       </div>
     </form>
   </div>
+```
 
 Using the `(ngSubmit)` directive, the form element bind its submit event to the `onSubmit` method we created in the component.
 
