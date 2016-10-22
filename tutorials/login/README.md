@@ -152,7 +152,7 @@ login/login.component.ts:
 
 We make the service accessible from our component by declaring it in the `providers` list, and by adding it as a parameter in the constructor.
 
-> We do not need to add the routing service in `providers` because it is already provided at a global level (in `app.modeul.ts`), but we do it to mention it the constructor so we can access it from the component implementation.
+> We do not need to add the routing service in `providers` because it is already provided at a global level (in `app.module.ts`), but we do it to mention it the constructor so we can access it from the component implementation.
 
 In the `onSubmit` method, we call the service's `login` method, and we subscribe to the returned observable. Depending on the answer, we will either redirect to the home page or display an error message.
 
