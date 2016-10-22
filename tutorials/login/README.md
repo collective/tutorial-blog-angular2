@@ -17,7 +17,7 @@ Add the home component:
 
 app.module.ts:
 
-```
+```javascript
   import { RouterModule } from '@angular/router';
 
   @NgModule({
@@ -34,7 +34,7 @@ app.module.ts:
 ```
 
 app.component.html:
-```
+```html
   <nav>
     <a routerLink="/">Home</a>
     <a routerLink="/login">Login</a>
@@ -56,7 +56,7 @@ We need and extra file here to implement the login service.
 
 Go in the `./login` folder and create a `login.service.ts` file:
 
-```
+```javascript
   import { Injectable } from '@angular/core';
   import { Http, Headers } from '@angular/http';
   import { Observable } from "rxjs/Observable";
@@ -115,7 +115,7 @@ In our current case, we parse the JSON returned by the backend, then we check if
 Now we can use our service in our Login component:
 
 login/login.component.ts:
-```
+```javascript
   ...
 
   import { UserService } from './login.service';
@@ -156,37 +156,27 @@ In the `onSubmit` method, we call the services's `login` method, and we subscrib
 The Login component template will just display a form that way:
 
 login/login.component.html:
-```
-  <div class="mdl-card plone-login">
-    <form #f="ngForm" (ngSubmit)="onSubmit()">
-
-      <div [hidden]="!authentication_error" 
-               class="error">
-            Authentication failed!
-      </div>
-      <div class="mdl-card__supporting-text">
-        <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="text" name="username"  id="username" 
-           required  
-           [(ngModel)]="username"/>
-          <label class="mdl-textfield__label" for="username">Username</label>
-        </div>
-        <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="password" name="password" id="password"
-          required
-          [(ngModel)]="password" />
-          <label class="mdl-textfield__label" for="password">Password</label>
-        </div>
-      </div>
-      <div class="mdl-card__actions">
-        <button class="mdl-button mdl-js-button mdl-button--raised">
-          Log in
-        </button>
-      </div>
-    </form>
-  </div>
+```html
+  <form #f="ngForm" (ngSubmit)="onSubmit()">
+    <div [hidden]="!authentication_error">
+      Authentication failed!
+    </div>
+    <div>
+      <label for="username">Username</label>
+      <input type="text" name="username"  id="username" required  [(ngModel)]="username"/>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password"
+      required
+      [(ngModel)]="password" />
+    </div>
+    <button>
+      Log in
+    </button>
+  </form>
 ```
 
-Using the `(ngSubmit)` directive, the form element bind its submit event to the `onSubmit` method we created in the component.
+Using the `(ngSubmit)` directive, the form element binds its submit event to the `onSubmit` method we created in the component.
 
-The input elements are binded to the component properties using the `[(ngModel)]`.
+The input elements are bound to the component properties using the `[(ngModel)]`.
