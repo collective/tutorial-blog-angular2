@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { UserService } from './login/login.service';
 import {
   routing,
   appRoutingProviders
@@ -29,6 +30,7 @@ import { LoginComponent } from './login/login.component';
   ],
   providers: [
     appRoutingProviders,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
