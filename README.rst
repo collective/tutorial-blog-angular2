@@ -1,23 +1,29 @@
 Tutorial Blog Angular 2
 =======================
 
-Todo
-----
+Backend
+-------
 
-Basic:
+The backend is just a plain Plone 5 site with plone.restapi installed.
 
- [ ] Plone Buildout with CORS (victor)
- [ ] CLI configuration (eric/timo)
- [ ] Initial frontend project structure (eric/timo)
- [ ] Test Setup Unit / Protractor (timo)
- [ ] Travis configuration (timo)
+Installation::
 
-Implementation:
+  $ cd backend
+  $ bin/buildout
 
- [ ] Login
- [ ] Blog Content Type (Title, Description, RichText)
- [ ] Main Page View/Route
- [ ] Detail Page View/Route
- [ ] CRUD for Blog Page
+Start backend::
 
+  $ bin/instance fg
 
+Frontend
+--------
+
+Install node 6.9.1 (https://nodejs.org/en/).
+
+Installation::
+
+  $ cd frontend
+  $ npm install
+  $ npm start
+
+Then go to http://localhost:4200 in your browser.
