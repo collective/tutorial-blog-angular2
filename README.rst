@@ -1,6 +1,10 @@
 Tutorial Blog Angular 2
 =======================
 
+.. image:: https://secure.travis-ci.org/collective/tutorial-blog-angular2.png?branch=master
+    :target: http://travis-ci.org/collective/tutorial-blog-angular2
+    :alt: Tests
+
 Backend
 -------
 
