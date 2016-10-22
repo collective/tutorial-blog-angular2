@@ -12,6 +12,7 @@ import { UserService } from './login.service';
 export class LoginComponent {
   username = '';
   password = '';
+  authentication_error = false;
   constructor(private userService: UserService, private router: Router) {}
 
   onSubmit() {
@@ -28,8 +29,11 @@ export class LoginComponent {
           this.router.navigate(['']);
         }
       },
-      err => console.log("Can't get page. Error code: %s, URL: %s ",
-                err.status, err.url),
+      err => {
+        this.authentication_error = true;
+        console.log("Can't get page. Error code: %s, URL: %s ",
+                err.status, err.url);
+       },
       () => console.log("Done")
     );
   }

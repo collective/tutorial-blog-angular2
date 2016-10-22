@@ -59,3 +59,5 @@ header.mdl-layout__header--scroll {
 .plone-login {
   margin: 2em auto;
 }
+
+.error{color:rgb(213, 0, 0);}
