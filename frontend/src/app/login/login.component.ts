@@ -16,8 +16,6 @@ export class LoginComponent {
   constructor(private userService: UserService, private router: Router) {}
 
   onSubmit() {
-    console.log('onSubmit');
-    console.log(this.username);
     this.userService.login(this.username, this.password).subscribe(
       data => {
         if (data===true) {
