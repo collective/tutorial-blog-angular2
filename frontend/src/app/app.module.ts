@@ -13,13 +13,15 @@ import {
 } from './app.routes.ts';
 import { BlogpostComponent } from './blogpost/blogpost.component';
 import { LoginComponent } from './login/login.component';
+import { CreatePostComponent } from './home/createpost.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     BlogpostComponent,
-    LoginComponent
+    LoginComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,

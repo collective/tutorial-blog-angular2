@@ -23,4 +23,25 @@ export class HomepageService {
       })
     })
   }
+
+  postBlogPosts(title, description, text): Observable<any> {
+    let headers = new Headers();
+    headers.append('Accept', 'application/json');
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('auth_token'));
+
+    return this.http.post(
+      'http://localhost:8080/Plone/blog',
+      JSON.stringify({
+        '@type': "Document",
+        'title': title,
+        'text': text,
+        'description': description,
+      }),
+      { headers })
+    .map(res => res.json())
+    .map((res) => {
+      return true;
+    });
+  }
 }
