@@ -15,6 +15,8 @@ Add the home component:
   $ ng g component home
 ```
 
+Let's add two routes (one for home, one for login):
+
 app.module.ts:
 
 ```javascript
@@ -23,8 +25,7 @@ app.module.ts:
   @NgModule({
     ...
     imports: [
-      BrowserModule,
-      FormsModule,
+      ...
       RouterModule.forRoot([
         { path: '', component: HomeComponent },
         { path: 'login', component: LoginComponent },
@@ -52,7 +53,7 @@ Add the login component:
 Every component created by the ng CLI has its own folder.
 A `./login` has been created containing the component `.ts` file, its `.css` style file, its `.html` template, and its `.spec.ts` test file.
 
-We need and extra file here to implement the login service.
+We need an extra file here to implement the login service.
 
 Go in the `./login` folder and create a `login.service.ts` file:
 
@@ -106,7 +107,7 @@ Go in the `./login` folder and create a `login.service.ts` file:
   }
 ```
 
-It provides a `login()` method which returns an observable (all HTTP calls are handled as observables in Angular 2).
+It provides a `login()` method which returns an observable (all HTTP calls are handled as observables in Angular 2, so we can subscibe to them, and take an action when we get a response).
 
 We can use the `map()` method on observables in order to chain different transformation or processing, and each `map()` call will also return an observable.
 
@@ -151,7 +152,9 @@ login/login.component.ts:
 
 We make the service accessible from our component by declaring it in the `providers` list, and by adding it as a parameter in the constructor.
 
-In the `onSubmit` method, we call the services's `login` method, and we subscribe to the returned observable. Depending n the answer, we will either redirect to the home page or display an error message.
+> We do not need to add the routing service in `providers` because it is already provided at a global level (in `app.modeul.ts`), but we do it to mention it the constructor so we can access it from the component implementation.
+
+In the `onSubmit` method, we call the service's `login` method, and we subscribe to the returned observable. Depending on the answer, we will either redirect to the home page or display an error message.
 
 The Login component template will just display a form that way:
 
