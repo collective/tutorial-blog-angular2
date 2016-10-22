@@ -15,6 +15,9 @@ Start backend::
 
   $ bin/instance fg
 
+Create a Plone site by navigating to http://localhost:8080, and then install `plone.restapi` in Site Setip / Add-ons.
+
+
 Frontend
 --------
 
