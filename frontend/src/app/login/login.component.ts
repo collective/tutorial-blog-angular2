@@ -18,11 +18,6 @@ export class LoginComponent {
   onSubmit() {
     console.log('onSubmit');
     console.log(this.username);
-    /*this.userService.login(email, password).subscribe((result) => {
-      if (result) {
-        this.router.navigate(['']);
-      }
-    });*/
     this.userService.login(this.username, this.password).subscribe(
       data => {
         if (data===true) {
