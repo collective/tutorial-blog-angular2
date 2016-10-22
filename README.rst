@@ -8,7 +8,10 @@ The backend is just a plain Plone 5 site with plone.restapi installed.
 
 Installation::
 
+  $ virtualenv restapi
+  $ source restapi/bin/activate
   $ cd backend
+  $ python bootstrap-buildout.py
   $ bin/buildout
 
 Start backend::
