@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
-import { Observable } from "rxjs/Observable";
-import "rxjs/add/operator/map";
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class HomepageService {
@@ -34,7 +34,7 @@ export class HomepageService {
     return this.http.post(
       'http://localhost:8080/Plone/blog',
       JSON.stringify({
-        '@type': "Document",
+        '@type': 'Document',
         'title': title,
         'text': text,
         'description': description,

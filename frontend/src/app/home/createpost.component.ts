@@ -20,11 +20,11 @@ export class CreatePostComponent {
     console.log(this.title);
     this.homepageService.postBlogPosts(this.title, this.description, this.text).subscribe(
       data => {
-        if (data===true) {
+        if (data === true) {
           this.router.navigate(['']);
         }
       },
-      () => console.log("Done")
+      () => console.log('Done')
     );
   }
 
