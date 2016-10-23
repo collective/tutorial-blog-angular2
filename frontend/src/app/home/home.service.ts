@@ -21,8 +21,8 @@ export class HomepageService {
         var parts = item['@id'].split('/');
         item.postId = parts[parts.length - 1];
         return item;
-      })
-    })
+      });
+    });
   }
 
   postBlogPosts(title, description, text): Observable<any> {
