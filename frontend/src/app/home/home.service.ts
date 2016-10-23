@@ -14,10 +14,12 @@ export class HomepageService {
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Bearer ' + localStorage.getItem('auth_token'));
 
-    return this.http.get('http://localhost:8080/Plone/blog', { headers })
+    return this.http.get('http://localhost:8080/Plone/news', { headers })
     .map(res => res.json().items)
     .map(res => {
-      return res.map(function(item) {
+      return res
+      .filter(item => item['@type'] === 'News Item')
+      .map(item => {
         let parts = item['@id'].split('/');
         item.postId = parts[parts.length - 1];
         return item;
@@ -32,9 +34,9 @@ export class HomepageService {
     headers.append('Authorization', 'Bearer ' + localStorage.getItem('auth_token'));
 
     return this.http.post(
-      'http://localhost:8080/Plone/blog',
+      'http://localhost:8080/Plone/news',
       JSON.stringify({
-        '@type': 'Document',
+        '@type': 'News Item',
         'title': title,
         'text': text,
         'description': description,
