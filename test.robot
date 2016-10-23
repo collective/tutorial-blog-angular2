@@ -21,7 +21,7 @@ Suite Teardown  Test Teardown
 Test Setup
   ${server_process}=  Start Process  ng serve  cwd=${CURDIR}  shell=true
   Set Suite Variable  ${SERVER_PROCESS}  ${server_process}
-  Sleep  5s
+  Sleep  25s
   Open Browser  ${SERVER}  ${BROWSER}
   Set Window Size  1280  1024
 
