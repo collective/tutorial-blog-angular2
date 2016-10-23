@@ -1,10 +1,14 @@
-Tutorial Blog Angular 2
-=======================
+Tutorial Plone Blog Angular 2
+=============================
 
 .. image:: https://secure.travis-ci.org/collective/tutorial-blog-angular2.png?branch=master
     :target: http://travis-ci.org/collective/tutorial-blog-angular2
     :alt: Tests
 
+This tutorial aims to learn how to use Angular 2 with a Plone backend.
+It is not a full Angular 2 tutorial, but it allows to discover the main principles of this framework in a very progressive way, so if you are not familiar with Angular 2, you should be just fine.
+
+If you are already familiar with Angular 2, it is still very useful as it provides interesting examples of Plone REST API usecases.
 
 Prerequisites
 ------------
