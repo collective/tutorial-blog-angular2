@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { UserService } from './login.service';
@@ -7,27 +7,27 @@ import { UserService } from './login.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [UserService]
+  providers: [UserService],
 })
 export class LoginComponent {
+  username = '';
+  password = '';
+  authentication_error = false;
   constructor(private userService: UserService, private router: Router) {}
 
-  onSubmit(email, password) {
-    console.log('onSubmit');
-    /*this.userService.login(email, password).subscribe((result) => {
-      if (result) {
-        this.router.navigate(['']);
-      }
-    });*/
-    this.userService.login('admin', 'admin').subscribe(
+  onSubmit() {
+    this.userService.login(this.username, this.password).subscribe(
       data => {
-        if (data) {
+        if (data === true) {
           this.router.navigate(['']);
         }
       },
-      err => console.log("Can't get page. Error code: %s, URL: %s ",
-                err.status, err.url),
-      () => console.log("Done")
+      err => {
+        this.authentication_error = true;
+        console.log('Can\'t get page. Error code: %s, URL: %s ',
+                err.status, err.url);
+       },
+      () => console.log('Done')
     );
   }
 

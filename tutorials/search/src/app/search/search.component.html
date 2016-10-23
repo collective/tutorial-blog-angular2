@@ -1,0 +1,10 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <div>
+    <label for="search">Search Site</label>
+    <input type="text" name="search" id="search" ngModel />
+  </div>
+  <button>Search</button>
+  <ol>
+    <li *ngFor="let item of items">{{ item.title }}</li>
+  </ol>
+</form>
