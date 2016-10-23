@@ -10,16 +10,24 @@ import { UserService } from './login.service';
   styleUrls: ['./login.component.css'],
   providers: [UserService],
 })
-export class LoginComponent {
-  username = '';
-  password = '';
+export class LoginComponent implements OnInit {
+
+  loggedIn = false;
   authentication_error = false;
+
   constructor(private userService: UserService, private router: Router) {}
 
-  onSubmit() {
-    console.log('onSubmit');
-    console.log(this.username);
-    this.userService.login(this.username, this.password).subscribe(
+  ngOnInit() {
+    this.loggedIn = this.userService.isLoggedIn();
+  }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['']);
+  }
+
+  onSubmit(form) {
+    this.userService.login(form.username, form.password).subscribe(
       data => {
         if (data===true) {
           this.router.navigate(['']);
@@ -29,8 +37,7 @@ export class LoginComponent {
         this.authentication_error = true;
         console.log("Can't get page. Error code: %s, URL: %s ",
                 err.status, err.url);
-       },
-      () => console.log("Done")
+       }
     );
   }
 

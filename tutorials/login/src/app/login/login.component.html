@@ -1,16 +1,18 @@
-<form #f="ngForm" (ngSubmit)="onSubmit()">
+<div [hidden]="!loggedIn">
+  You are logged in. <button (click)="logout()">Logout</button>
+</div>
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
   <div [hidden]="!authentication_error">
     Authentication failed!
   </div>
   <div>
     <label for="username">Username</label>
-    <input type="text" name="username"  id="username" required  [(ngModel)]="username"/>
+    <input type="text" name="username"  id="username" required ngModel />
   </div>
   <div>
     <label for="password">Password</label>
     <input type="password" name="password" id="password"
-    required
-    [(ngModel)]="password" />
+    required ngModel />
   </div>
   <button>
     Log in

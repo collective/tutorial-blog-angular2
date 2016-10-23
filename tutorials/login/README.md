@@ -2,7 +2,7 @@
 
 > Note: this tutorial goes through the different steps needed to create a basic application displaying a login form able to authentify to the Plone REST API. If you run all those steps prperly, you should obtain a code similar to the one contained in the current folder.
 
-## Initialize the application
+## Initializing the application
 
 Create application:
 ```
@@ -15,7 +15,9 @@ Add the home component:
   $ ng g component home
 ```
 
-Let's add two routes (one for home, one for login):
+As we want to be able to display either the home page, either the login page, we need routing.
+
+Let's add two routes:
 
 app.module.ts:
 
@@ -43,15 +45,17 @@ app.component.html:
   <router-outlet></router-outlet>
 ```
 
-## Create the Login component
+## Initializing the Login component
 
 Add the login component:
 ```
   $ ng g component login
 ```
 
-Every component created by the ng CLI has its own folder.
-A `./login` has been created containing the component `.ts` file, its `.css` style file, its `.html` template, and its `.spec.ts` test file.
+A `./login` folder has been created containing the component `.ts` file, its `.css` style file, its `.html` template, and its `.spec.ts` test file.
+
+## Implementing the Lofin service
+We prefer to implement the logic logic outside the component itself (which is supposed to focus only on the UI aspects).
 
 We need an extra file here to implement the login service.
 
@@ -72,12 +76,14 @@ Go in the `./login` folder and create a `login.service.ts` file:
     }
 
     login(login: string, password: string): Observable<any> {
+      // let backend = 'http://localhost:8080/Plone'; // Plone 5
+      let backend = 'http://localhost:8080/Plone'; // plone.server
       let headers = new Headers();
       headers.append('Accept', 'application/json');
       headers.append('Content-Type', 'application/json');
 
       return this.http.post(
-        'http://localhost:8080/Plone/@login',
+        backend + '/@login',
         JSON.stringify({
           'login': login,
           'password': password
@@ -113,27 +119,39 @@ We can use the `map()` method on observables in order to chain different transfo
 
 In our current case, we parse the JSON returned by the backend, then we check if it contains a token, and if that is the case, it stores it in the localstorage.
 
+It also provides a `logout()` method to remove the stored token.
+
+## Using the service in the component
+
 Now we can use our service in our Login component:
 
 login/login.component.ts:
 ```javascript
   ...
-
   import { UserService } from './login.service';
 
   @Component({
     ...
     providers: [UserService],
   })
-  export class LoginComponent {
-    username = '';
-    password = '';
+  export class LoginComponent implements OnInit {
+
+    loggedIn = false;
     authentication_error = false;
 
     constructor(private userService: UserService, private router: Router) {}
 
-    onSubmit() {
-      this.userService.login(this.username, this.password).subscribe(
+    ngOnInit() {
+      this.loggedIn = this.userService.isLoggedIn();
+    }
+
+    logout() {
+      this.userService.logout();
+      this.router.navigate(['']);
+    }
+
+    onSubmit(form) {
+      this.userService.login(form.username, form.password).subscribe(
         data => {
           if (data===true) {
             this.router.navigate(['']);
@@ -143,8 +161,7 @@ login/login.component.ts:
           this.authentication_error = true;
           console.log("Can't get page. Error code: %s, URL: %s ",
                   err.status, err.url);
-         },
-        () => console.log("Done")
+         }
       );
     }
   }
@@ -160,19 +177,21 @@ The Login component template will just display a form that way:
 
 login/login.component.html:
 ```html
-  <form #f="ngForm" (ngSubmit)="onSubmit()">
+  <div [hidden]="!loggedIn">
+    You are logged in. <button (click)="logout()">Logout</button>
+  </div>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
     <div [hidden]="!authentication_error">
       Authentication failed!
     </div>
     <div>
       <label for="username">Username</label>
-      <input type="text" name="username"  id="username" required  [(ngModel)]="username"/>
+      <input type="text" name="username"  id="username" required ngModel />
     </div>
     <div>
       <label for="password">Password</label>
       <input type="password" name="password" id="password"
-      required
-      [(ngModel)]="password" />
+      required ngModel />
     </div>
     <button>
       Log in
@@ -180,6 +199,15 @@ login/login.component.html:
   </form>
 ```
 
-Using the `(ngSubmit)` directive, the form element binds its submit event to the `onSubmit` method we created in the component.
+As in the Search tutorial, the form element binds its submit event to the `onSubmit` method we created in the component using the `(ngSubmit)` directive, and the input elements are bound to the form using the `ngModel` directive.
 
-The input elements are bound to the component properties using the `[(ngModel)]`.
+We also make sure to display (or not) the error message and the Logout button depending on the current state of the component using the `[hidden]` directive.
+
+We bind the `logout()` method to the button click using the `(click)` directive.
+
+We can now launch the app:
+
+  ``
+  $ ng serve
+  ``
+Then go to http://localhost:4200 in your browser.
