@@ -15,6 +15,9 @@ export class SearchComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit(form) {
+    let backend = 'http://localhost:8080/Plone'; // Plone 5
+    // let backend = 'http://localhost:8080/Plone'; // plone.server
+
     let headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/json');
@@ -22,7 +25,7 @@ export class SearchComponent implements OnInit {
     let query = '?SearchableText=' + form.search;
 
     return this.http.get(
-      'http://localhost:8080/Plone/@search' + query,
+      backend + '/@search' + query,
       { headers }
     )
     .subscribe(res => {

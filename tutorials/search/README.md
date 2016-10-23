@@ -69,7 +69,7 @@ Here is what it does:
   - the `ngModel` directive on the `input` tag add the input value to the form model (basically, it means `f.value` will contain a property named `search` containing the current value of our input),
   - and finally, the `ngFor` directive allows to loop over the `items` values to display the results, `items` is a property of our component (and we will set its value according the backend response).
 
-# Implementing the component
+## Implementing the component
 
 Open the `search.component.ts` file in a text editor and modfiy it that way:
 
@@ -91,6 +91,8 @@ Open the `search.component.ts` file in a text editor and modfiy it that way:
     ngOnInit() {}
 
     onSubmit(form) {
+      let backend = 'http://localhost:8080/Plone'; // Plone 5
+      // let backend = 'http://localhost:8080/Plone'; // plone.server
       let headers = new Headers();
       headers.append('Accept', 'application/json');
       headers.append('Content-Type', 'application/json');
@@ -98,7 +100,7 @@ Open the `search.component.ts` file in a text editor and modfiy it that way:
       let query = '?SearchableText=' + form.search;
 
       return this.http.get(
-        'http://localhost:8080/Plone/@search' + query,
+        backend + '/@search' + query,
         { headers }
       )
       .subscribe(res => {
@@ -108,6 +110,8 @@ Open the `search.component.ts` file in a text editor and modfiy it that way:
     }
   }
   ```
+
+> Make sure to comment/uncomment the proper backend definition.
 
 Explanations:
 
@@ -119,7 +123,7 @@ Explanations:
     - we parse it as JSON,
     - and put its `items` property in our component's `items` property.
 
-# Displaying the component in the app
+## Displaying the component in the app
 
 Finally we need to insert our Search component in the main app template.
 
