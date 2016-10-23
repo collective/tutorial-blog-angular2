@@ -13,6 +13,7 @@ import {
 import { BlogpostComponent } from './blogpost/blogpost.component';
 import { LoginComponent } from './login/login.component';
 import { CreatePostComponent } from './blogpost/createpost.component';
+import { PublishPostComponent } from './blogpost/blogpost.publish.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CreatePostComponent } from './blogpost/createpost.component';
     HomeComponent,
     BlogpostComponent,
     LoginComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    PublishPostComponent,
   ],
   imports: [
     BrowserModule,

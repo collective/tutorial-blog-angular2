@@ -41,4 +41,19 @@ export class BlogPostService {
       return true;
     });
   }
+
+  publishBlogPosts(title): Observable<any> {
+    let headers = new Headers();
+    headers.append('Accept', 'application/json');
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('auth_token'));
+
+    let url = 'http://localhost:8080/Plone/news/' + title + '/@workflow/publish';
+    return this.http.post(
+      url,
+      { headers })
+    .map(res => res.json())
+    .map((res) => {
+      return true;
+    });
+  }
 }
