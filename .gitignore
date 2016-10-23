@@ -4,6 +4,11 @@ var/
 bin/
 .installed.cfg
 
+# robot
+log.html
+output.xml
+report.html
+
 # compiled output
 /frontend/dist
 /frontend/tmp
