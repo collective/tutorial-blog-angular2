@@ -6,20 +6,21 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { UserService } from './login/login.service';
 import {
   routing,
   appRoutingProviders
 } from './app.routes.ts';
 import { BlogpostComponent } from './blogpost/blogpost.component';
 import { LoginComponent } from './login/login.component';
+import { CreatePostComponent } from './home/createpost.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     BlogpostComponent,
-    LoginComponent
+    LoginComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,6 @@ import { LoginComponent } from './login/login.component';
   ],
   providers: [
     appRoutingProviders,
-    UserService
   ],
   bootstrap: [AppComponent]
 })
