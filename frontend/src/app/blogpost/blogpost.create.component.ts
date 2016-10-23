@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './createpost.component.html',
+  templateUrl: './blogpost.create.component.html',
   styleUrls: ['./blogpost.component.css'],
   providers: [BlogPostService]
 })

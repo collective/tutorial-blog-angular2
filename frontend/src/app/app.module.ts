@@ -12,7 +12,7 @@ import {
 } from './app.routes.ts';
 import { BlogpostComponent } from './blogpost/blogpost.component';
 import { LoginComponent } from './login/login.component';
-import { CreatePostComponent } from './blogpost/createpost.component';
+import { CreatePostComponent } from './blogpost/blogpost.create.component';
 import { SearchComponent } from './search/search.component';
 
 @NgModule({
