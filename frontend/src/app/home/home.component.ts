@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { HomepageService } from './home.service';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [HomepageService]
+  providers: [HomeService]
 })
 export class HomeComponent implements OnInit {
 
   blogPosts: any;
 
-  constructor(private homepageService: HomepageService) { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
-    this.homepageService.getBlogPosts().subscribe( res => {
+    this.homeService.getBlogPosts().subscribe( res => {
       this.blogPosts = res;
     });
   }
