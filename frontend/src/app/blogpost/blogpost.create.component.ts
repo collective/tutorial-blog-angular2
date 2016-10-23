@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   providers: [BlogPostService]
 })
 
-export class CreatePostComponent {
+export class BlogpostCreateComponent {
   title = '';
   description = '';
   text = '';
