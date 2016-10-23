@@ -4,6 +4,8 @@ ${HOSTNAME}             127.0.0.1
 ${PORT}                 4200
 ${SERVER}               http://${HOSTNAME}:${PORT}/
 ${BROWSER}              chrome
+${INVALID_USERNAME}     invalid
+${INVALID_PASSWORD}     invalid
 
 
 *** Settings ***
@@ -37,3 +39,29 @@ Scenario: As a visitor I can visit the front page
   Go To  ${SERVER}
   Wait until page contains  Home
   Page Should Contain  Home
+
+Scenario: User enters invalid credentials
+  Given a login form
+   When I enter an invalid credentials
+   Then I am not logged in
+    and I see a notification that I entered invalid credentials
+
+*** Keywords ***
+
+a login form
+  Go to  ${SERVER}/login
+  Wait until page contains element  xpath=//input[@name='username']
+
+I enter an invalid credentials
+  Wait until page contains element  xpath=//input[@name='username']
+  Input text  xpath=//input[@name='username']  ${INVALID_USERNAME}
+  Input text  xpath=//input[@name='password']  ${INVALID_PASSWORD}
+  Click Button  Log in
+
+I am not logged in
+  No operation
+
+I see a notification that I entered invalid credentials
+  Wait until page contains  Authentication failed!
+  Page should contain  Authentication failed!
+
