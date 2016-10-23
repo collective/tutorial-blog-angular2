@@ -16,8 +16,6 @@ export class CreatePostComponent {
   constructor(private blogPostService: BlogPostService, private router: Router) {}
 
   onSubmit() {
-    console.log('onSubmit');
-    console.log(this.title);
     this.blogPostService.postBlogPosts(this.title, this.description, this.text).subscribe(
       data => {
         if (data === true) {
