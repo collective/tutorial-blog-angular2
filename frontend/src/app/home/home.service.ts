@@ -18,7 +18,7 @@ export class HomepageService {
     .map(res => res.json().items)
     .map(res => {
       return res.map(function(item) {
-        var parts = item['@id'].split('/');
+        let parts = item['@id'].split('/');
         item.postId = parts[parts.length - 1];
         return item;
       });
