@@ -39,6 +39,12 @@ Setup the Backend
 
 The backend can be either a plain Plone 5 site with plone.restapi installed, or a plone.server instance with pserver.cms.
 
+  $ virtualenv restapi
+  $ source restapi/bin/activate
+  $ cd backend
+  $ python bootstrap-buildout.py
+  $ bin/buildout
+
 - To setup a Plone 5 instance, you can use the following Docker image:
 
     TODO: create a Docker image
