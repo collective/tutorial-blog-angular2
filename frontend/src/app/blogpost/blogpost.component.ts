@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BlogPostService } from './blogpost.service';
 
 @Component({
   selector: 'app-blogpost',
   templateUrl: './blogpost.component.html',
-  styleUrls: ['./blogpost.component.css']
+  styleUrls: ['./blogpost.component.css'],
+  providers: [BlogPostService]
 })
 export class BlogpostComponent implements OnInit {
 
@@ -11,12 +14,20 @@ export class BlogpostComponent implements OnInit {
   description: string;
   text: string;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private blogPostService: BlogPostService) {
+  }
 
   ngOnInit() {
-    this.title = 'Getting Started With Plone Testing';
-    this.description = 'bobtemplates.plone is a package skeleton generator that gives you an easy start with Plone testing.';
-    this.text = '<p>The Plone Testing & Continuous Integration team worked hard over the last few months setting up an a new ...</p>';
+    this.route.params.subscribe(params => {
+      let path = params['path'];
+      this.blogPostService.getBlogPost(path).subscribe(item => {
+        this.title = item.title;
+        this.description = item.description;
+        this.text = item.text.data;
+      });
+    });
   }
 
 }
