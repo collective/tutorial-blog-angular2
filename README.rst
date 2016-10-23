@@ -6,35 +6,64 @@ Tutorial Blog Angular 2
     :alt: Tests
 
 
+Prerequisites
+------------
+
+This tutorial uses the Angular javascript framework. Angular is well documented at:
+
+https://angular.io/docs/ts/latest/
+
+Install nvm on your system using the instructions and provided script at:
+
+https://github.com/creationix/nvm#install-script
+
+Using nvm we will look up the latest lts version of node.js and install it::
+
+    $ nvm ls-remote --lts
+    $ nvm install v6.9.1
+    $ nvm use v6.9.1
+
+Next we will install the angular-cli (ng)::
+
+    $ npm install -g angular-cli
+
+Barring any errors, ng will be available from the command line and we are ready
+to bootstrap an application.
+
 Setup the Backend
 -----------------
 
-The backend is just a plain Plone 5 site with plone.restapi installed.
+The backend can be either a plain Plone 5 site with plone.restapi installed, or a plone.server instance with pserver.cms.
 
-Installation::
+- To setup a Plone 5 instance, you can use the following Docker image:
 
-  $ cd backend
-  $ bin/buildout
+    TODO: create a Docker image
 
-The buildout will automatically create a site (id=Plone, login=admin/admin).
+- or you can build it locally::
 
-Start backend::
+        $ cd backend
+        $ bin/buildout
 
-  $ bin/instance fg
+    The buildout will automatically create a site (id=Plone, login=admin/admin).
+
+    Start backend::
+
+        $ bin/instance fg
+
+- To setup plone.server, use the following Docker image:
+
+    https://hub.docker.com/r/plone/pserver.demo/
 
 
 Build the Frontend
 ------------------
 
-Install node 6.9.1 (https://nodejs.org/en/).
-
-TODO: we should move here the install details from the Search tutorial.
-
 Installation::
 
-  $ cd frontend
-  $ npm install
-  $ npm start
+    $ nvm use v6.9.1
+    $ cd frontend
+    $ npm install
+    $ npm start
 
 Then go to http://localhost:4200 in your browser.
 
