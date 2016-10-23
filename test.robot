@@ -4,6 +4,8 @@ ${HOSTNAME}             127.0.0.1
 ${PORT}                 4200
 ${SERVER}               http://${HOSTNAME}:${PORT}/
 ${BROWSER}              chrome
+${VALID_USERNAME}       admin
+${VALID_PASSWORD}       admin
 ${INVALID_USERNAME}     invalid
 ${INVALID_PASSWORD}     invalid
 
@@ -46,11 +48,26 @@ Scenario: User enters invalid credentials
    Then I am not logged in
     and I see a notification that I entered invalid credentials
 
+Scenario: User enters valid credentials
+  Given a registered user
+    and a login form
+   When I enter valid credentials
+   Then I am logged in
+    and I see a notification that I am logged in
+
+
 *** Keywords ***
+
+# Given
 
 a login form
   Go to  ${SERVER}/login
   Wait until page contains element  xpath=//input[@name='username']
+
+a registered user
+  No operation
+
+# When
 
 I enter an invalid credentials
   Wait until page contains element  xpath=//input[@name='username']
@@ -58,10 +75,23 @@ I enter an invalid credentials
   Input text  xpath=//input[@name='password']  ${INVALID_PASSWORD}
   Click Button  Log in
 
+I enter valid credentials
+  Wait until page contains element  xpath=//input[@name='username']
+  Input text  xpath=//input[@name='username']  ${VALID_USERNAME}
+  Input text  xpath=//input[@name='password']  ${VALID_PASSWORD}
+  Click Button  Log in
+
+# Then
+
 I am not logged in
+  No operation
+
+I am logged in
   No operation
 
 I see a notification that I entered invalid credentials
   Wait until page contains  Authentication failed!
   Page should contain  Authentication failed!
 
+I see a notification that I am logged in
+  No operation
