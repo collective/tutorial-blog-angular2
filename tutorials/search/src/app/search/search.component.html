@@ -1,15 +1,10 @@
-<div class="plone-search">
-  <form #f="ngForm" (ngSubmit)="onSubmit()">
-    <div>
-      <div class="mdl-textfield mdl-js-textfield">
-        <label class="mdl-textfield__label" for="search">Search Site</label>
-        <input class="mdl-textfield__input" type="text" name="search" id="search" ngModel/>
-      </div>
-    </div>
-    <div>
-      <button class="mdl-button mdl-js-button mdl-button--raised">
-        Search
-      </button>
-    </div>
-  </form>
-</div>
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <div>
+    <label for="search">Search Site</label>
+    <input type="text" name="search" id="search" ngModel />
+  </div>
+  <button>Search</button>
+  <ol>
+    <li *ngFor="let item of items">{{ item.title }}</li>
+  </ol>
+</form>
