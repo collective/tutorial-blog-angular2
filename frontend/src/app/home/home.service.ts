@@ -12,6 +12,7 @@ export class HomepageService {
     let headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('auth_token'));
 
     return this.http.get('http://localhost:8080/Plone/blog', { headers })
     .map(res => res.json().items)
