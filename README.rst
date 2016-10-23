@@ -58,6 +58,11 @@ The backend can be either a plain Plone 5 site with plone.restapi installed, or 
 
     https://hub.docker.com/r/plone/pserver.demo/
 
+    ::
+
+        $ docker pull plone/pserver.demo
+        $ docker run -it -p 8080:8080 plone/pserver.demo
+
 
 Build the Frontend
 ------------------
