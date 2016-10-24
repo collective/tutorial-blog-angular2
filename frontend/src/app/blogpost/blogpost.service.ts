@@ -14,11 +14,10 @@ export class BlogPostService {
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Bearer ' + localStorage.getItem('auth_token'));
 
-    return this.http.get('http://localhost:8080/Plone/news/' + id, { headers })
-    .map(res => res.json())
-    .map(res => {
-      console.log(res);
-    });
+    return this.http.get(
+      'http://localhost:8080/Plone/news/' + id,
+      { headers }
+    ).map(res => res.json());
   }
 
   postBlogPosts(title, description, text): Observable<any> {

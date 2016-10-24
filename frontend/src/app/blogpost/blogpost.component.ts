@@ -1,22 +1,32 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BlogPostService } from './blogpost.service';
 
 @Component({
   selector: 'app-blogpost',
   templateUrl: './blogpost.component.html',
-  styleUrls: ['./blogpost.component.css']
+  styleUrls: ['./blogpost.component.css'],
+  providers: [BlogPostService]
 })
 export class BlogpostComponent implements OnInit {
 
+  blogpostId: string;
   title: string;
   description: string;
   text: string;
+  route: any;
 
-  constructor() { }
+  constructor(private blogPostService: BlogPostService, route: ActivatedRoute) {
+    this.route = route;
+  }
 
   ngOnInit() {
-    this.title = 'Getting Started With Plone Testing';
-    this.description = 'bobtemplates.plone is a package skeleton generator that gives you an easy start with Plone testing.';
-    this.text = '<p>The Plone Testing & Continuous Integration team worked hard over the last few months setting up an a new ...</p>';
+    let blogpostId = this.route.snapshot.params['path'];
+    this.blogPostService.getBlogPost(blogpostId).subscribe( res => {
+      this.title = res.title;
+      this.description = res.description;
+      this.text = res.text.data;
+    });
   }
 
 }

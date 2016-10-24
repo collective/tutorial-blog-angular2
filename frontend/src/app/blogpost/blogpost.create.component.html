@@ -10,16 +10,28 @@
     </div>
     <div class="mdl-card__supporting-text">
       <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="description" name="description" id="description"
-          [(ngModel)]="description" />
-          <label class="mdl-textfield__label" for="description">Summary</label>
+        <input class="mdl-textfield__input"
+               type="description"
+               name="description"
+               id="description"
+               [(ngModel)]="description" />
+        <label class="mdl-textfield__label"
+               for="description">
+          Summary
+        </label>
       </div>
     </div>
     <div class="mdl-card__supporting-text">
       <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="text" name="text" id="text"
-          [(ngModel)]="text" />
-          <label class="mdl-textfield__label" for="text">Text</label>
+        <textarea class="mdl-textfield__input"
+                  type="text"
+                  rows="10"
+                  id="text"
+                  name="text"
+                  [(ngModel)]="text"></textarea>
+        <label class="mdl-textfield__label" for="sample5">
+          Text lines...
+        </label>
       </div>
     </div>
     <div class="mdl-card__actions">
