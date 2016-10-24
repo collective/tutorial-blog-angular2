@@ -6,7 +6,7 @@ import {
     RouterTestingModule
 } from "@angular/router/testing";
 
-describe('App: Frontend', () => {
+describe("App: Frontend", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
