@@ -1,17 +1,24 @@
 <div class="content">
+  <h2>Add Blogpost</h2>
   <form #f="ngForm" (ngSubmit)="onSubmit()">
-    <div class="mdl-card__supporting-text">
-      <div class="mdl-textfield mdl-js-textfield">
-        <input class="mdl-textfield__input" type="title" name="title" id="title"
-        required
-        [(ngModel)]="title" />
-        <label class="mdl-textfield__label" for="title">Title</label>
-      </div>
-    </div>
-    <div class="mdl-card__supporting-text">
+    <div class="mdl-cell mdl-cell--12-col">
       <div class="mdl-textfield mdl-js-textfield">
         <input class="mdl-textfield__input"
-               type="description"
+               type="text"
+               name="title"
+               id="title"
+               required
+               [(ngModel)]="title" />
+        <label class="mdl-textfield__label"
+               for="title">
+          Title
+        </label>
+      </div>
+    </div>
+    <div class="mdl-cell mdl-cell--12-col">
+      <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input"
+               type="text"
                name="description"
                id="description"
                [(ngModel)]="description" />
@@ -21,7 +28,7 @@
         </label>
       </div>
     </div>
-    <div class="mdl-card__supporting-text">
+    <div class="mdl-cell mdl-cell--12-col">
       <div class="mdl-textfield mdl-js-textfield">
         <textarea class="mdl-textfield__input"
                   type="text"
@@ -29,12 +36,12 @@
                   id="text"
                   name="text"
                   [(ngModel)]="text"></textarea>
-        <label class="mdl-textfield__label" for="sample5">
+        <label class="mdl-textfield__label" for="text">
           Text lines...
         </label>
       </div>
     </div>
-    <div class="mdl-card__actions">
+    <div class="mdl-cell mdl-cell--12-col">
       <button id="create-blogpost-button"
               class="mdl-button mdl-js-button mdl-button--raised">
         Create
