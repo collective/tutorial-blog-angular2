@@ -14,7 +14,6 @@ export class BlogpostComponent implements OnInit {
   title: string;
   description: string;
   text: string;
-  route: any;
 
   constructor(
     private route: ActivatedRoute,
