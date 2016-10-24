@@ -55,10 +55,10 @@ Scenario: User enters valid credentials
    Then I am logged in
     and I see a notification that I am logged in
 
-Scenario: Create blogpost
-  Given a logged in user
-   When I create a blogpost with the title 'Colorless Green Ideas'
-   Then I can see a blogpost with the title 'Colorless Green Ideas'
+# Scenario: Create blogpost
+#   Given a logged in user
+#    When I create a blogpost with the title 'Colorless Green Ideas'
+#    Then I can see a blogpost with the title 'Colorless Green Ideas'
 
 #Scenario: User searches
 #  Given a search form
