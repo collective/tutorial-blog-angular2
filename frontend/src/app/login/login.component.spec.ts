@@ -47,7 +47,7 @@ describe('Component: Login', () => {
 
   beforeEach(inject([MockBackend], (backend: MockBackend) => {
     let response = {
-      "token": "something_long_long_long"
+      'token': 'something_long_long_long'
     };
     const baseResponse = new Response(new ResponseOptions({ body: response }));
     backend.connections.subscribe((c: MockConnection) => c.mockRespond(baseResponse));

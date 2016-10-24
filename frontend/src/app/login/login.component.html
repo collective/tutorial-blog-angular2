@@ -1,13 +1,13 @@
 <div class="mdl-card plone-login">
   <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
 
-    <div [hidden]="!authentication_error" 
+    <div [hidden]="!authentication_error"
              class="error">
           Authentication failed!
     </div>
     <div class="mdl-card__supporting-text">
       <div class="mdl-textfield mdl-js-textfield">
-        <input class="mdl-textfield__input" type="text" name="username"  id="username" 
+        <input class="mdl-textfield__input" type="text" name="username"  id="username"
          required ngModel/>
         <label class="mdl-textfield__label" for="username">Username</label>
       </div>
