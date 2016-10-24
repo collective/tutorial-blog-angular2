@@ -12,7 +12,8 @@ import {
 } from './app.routes.ts';
 import { BlogpostComponent } from './blogpost/blogpost.component';
 import { LoginComponent } from './login/login.component';
-import { CreatePostComponent } from './blogpost/createpost.component';
+import { BlogpostCreateComponent } from './blogpost/blogpost.create.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CreatePostComponent } from './blogpost/createpost.component';
     HomeComponent,
     BlogpostComponent,
     LoginComponent,
-    CreatePostComponent
+    BlogpostCreateComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

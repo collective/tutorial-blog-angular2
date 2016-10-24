@@ -10,6 +10,7 @@ import { BlogPostService } from './blogpost.service';
 })
 export class BlogpostComponent implements OnInit {
 
+  blogpostId: string;
   title: string;
   description: string;
   text: string;

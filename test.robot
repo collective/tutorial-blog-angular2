@@ -1,6 +1,6 @@
 *** Variables ***
 
-${HOSTNAME}             127.0.0.1
+${HOSTNAME}             localhost
 ${PORT}                 4200
 ${SERVER}               http://${HOSTNAME}:${PORT}/
 ${BROWSER}              chrome
@@ -55,6 +55,16 @@ Scenario: User enters valid credentials
    Then I am logged in
     and I see a notification that I am logged in
 
+# Scenario: Create blogpost
+#   Given a logged in user
+#    When I create a blogpost with the title 'Colorless Green Ideas'
+#    Then I can see a blogpost with the title 'Colorless Green Ideas'
+
+#Scenario: User searches
+#  Given a search form
+#    and blogpost with the title ''
+#   When I search for ''
+#   Then I see the blogpost '
 
 *** Keywords ***
 
@@ -66,6 +76,10 @@ a login form
 
 a registered user
   No operation
+
+a logged in user
+  Go to  ${SERVER}/login
+  I enter valid credentials
 
 # When
 
@@ -81,6 +95,15 @@ I enter valid credentials
   Input text  xpath=//input[@name='password']  ${VALID_PASSWORD}
   Click Button  Log in
 
+I create a blogpost with the title '${title}'
+  Go to  ${SERVER}
+  Wait until page contains element  css=#create-blogpost-form
+  Click button  css=#create-blogpost-form
+  Wait until page contains element  xpath=//input[@name='title']
+  Input Text  xpath=//input[@name='title']  ${title}
+  Click button  css=#create-blogpost-button
+  Wait until page contains  Create Blog Post
+
 # Then
 
 I am not logged in
@@ -95,3 +118,9 @@ I see a notification that I entered invalid credentials
 
 I see a notification that I am logged in
   No operation
+
+I can see a blogpost with the title '${title}'
+  Go to  ${SERVER}
+  Wait until page contains  ${title}
+  Page should contain  ${title}
+
