@@ -16,16 +16,19 @@ export class BlogpostComponent implements OnInit {
   text: string;
   route: any;
 
-  constructor(private blogPostService: BlogPostService, route: ActivatedRoute) {
-    this.route = route;
+  constructor(
+    private route: ActivatedRoute,
+    private blogPostService: BlogPostService) {
   }
 
   ngOnInit() {
-    let blogpostId = this.route.snapshot.params['path'];
-    this.blogPostService.getBlogPost(blogpostId).subscribe( res => {
-      this.title = res.title;
-      this.description = res.description;
-      this.text = res.text.data;
+    this.route.params.subscribe(params => {
+      let path = params['path'];
+      this.blogPostService.getBlogPost(path).subscribe(item => {
+        this.title = item.title;
+        this.description = item.description;
+        this.text = item.text.data;
+      });
     });
   }
 

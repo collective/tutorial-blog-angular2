@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class HomepageService {
+export class HomeService {
 
   constructor(private http: Http) {}
 

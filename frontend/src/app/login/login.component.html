@@ -1,5 +1,5 @@
 <div class="mdl-card plone-login">
-  <form #f="ngForm" (ngSubmit)="onSubmit()">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
 
     <div [hidden]="!authentication_error" 
              class="error">
@@ -8,14 +8,12 @@
     <div class="mdl-card__supporting-text">
       <div class="mdl-textfield mdl-js-textfield">
         <input class="mdl-textfield__input" type="text" name="username"  id="username" 
-         required  
-         [(ngModel)]="username"/>
+         required ngModel/>
         <label class="mdl-textfield__label" for="username">Username</label>
       </div>
       <div class="mdl-textfield mdl-js-textfield">
         <input class="mdl-textfield__input" type="password" name="password" id="password"
-        required
-        [(ngModel)]="password" />
+        required ngModel />
         <label class="mdl-textfield__label" for="password">Password</label>
       </div>
     </div>
