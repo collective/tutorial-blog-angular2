@@ -10,13 +10,11 @@ import { BlogPostService } from './blogpost.service';
 })
 
 export class BlogpostCreateComponent {
-  title = '';
-  description = '';
-  text = '';
+
   constructor(private blogPostService: BlogPostService, private router: Router) {}
 
-  onSubmit() {
-    this.blogPostService.postBlogPosts(this.title, this.description, this.text).subscribe(
+  onSubmit(form) {
+    this.blogPostService.postBlogPosts(form.title, form.description, form.text).subscribe(
       data => {
         if (data === true) {
           this.router.navigate(['']);

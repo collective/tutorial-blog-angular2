@@ -6,6 +6,9 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class BlogPostService {
 
+  backend = 'http://localhost:8080/Plone'; // Plone 5
+  // backend = 'http://localhost:8080/Plone'; // plone.server
+
   constructor(private http: Http) {}
 
   getBlogPost(id): Observable<any> {
@@ -14,7 +17,7 @@ export class BlogPostService {
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', 'Bearer ' + localStorage.getItem('auth_token'));
 
-    return this.http.get('http://localhost:8080/Plone/news/' + id, { headers })
+    return this.http.get(this.backend + '/news/' + id, { headers })
     .map(res => res.json());
   }
 
@@ -25,7 +28,7 @@ export class BlogPostService {
     headers.append('Authorization', 'Bearer ' + localStorage.getItem('auth_token'));
 
     return this.http.post(
-      'http://localhost:8080/Plone/news',
+      this.backend + '/news',
       JSON.stringify({
         '@type': 'News Item',
         'title': title,
