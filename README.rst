@@ -85,7 +85,7 @@ Then go to http://localhost:4200 in your browser.
 Tutorials
 ---------
 
-Each tutorial explains how to create an application which focuses on one very specific feature (Search, Login, Blogpost).
+Each tutorial explains how to create separate working applications which each focused on one very specific feature (Search, Login, Blogpost). It allows to understand more easily how the Angular 2 app located in the `/frontend` folder is structured.
 
 **First tutorial: Search**
 

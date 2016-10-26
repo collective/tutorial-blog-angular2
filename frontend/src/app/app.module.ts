@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -29,6 +30,7 @@ import { SearchComponent } from './search/search.component';
     FormsModule,
     HttpModule,
     RouterModule,
+    ReactiveFormsModule,
     routing,
   ],
   providers: [

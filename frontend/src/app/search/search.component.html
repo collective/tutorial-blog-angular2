@@ -1,3 +1,23 @@
-<p>
-  search works!
-</p>
+<div class="android-search-box mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-textfield--full-width">
+  <label class="mdl-button mdl-js-button mdl-button--icon" for="search-field">
+    <i class="material-icons">search</i>
+  </label>
+  <div class="mdl-textfield__expandable-holder">
+    <input class="mdl-textfield__input" type="text" id="search-field"
+    [formControl]="term">
+  </div>
+  <div class="mdl-card-design mdl-card mdl-shadow--2dp" [hidden]="!results">
+    <div class="mdl-card__supporting-text">
+      <ul class="mdl-list" *ngFor="let item of results">
+        <li class="mdl-list__item">
+          <span class="mdl-list__item-primary-content">
+            <i class="material-icons mdl-list__item-icon">link</i>
+            <a [routerLink]="item.postId">
+              {{ item.title }}
+            </a>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
