@@ -1,31 +1,79 @@
-# Blogpost
+# Blogpost tutorial
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.17.
+> Note: this tutorial goes through the different steps needed to create a basic application with the following features: displaying a list of blog posts, displaying a detailed blog post, and creating a new post. If you run all those steps properly, you should obtain a code similar to the one contained in the current folder.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Initializing the application
 
-## Code scaffolding
+Create application:
+```
+  $ ng new blogpost
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
+Add the home component:
+```
+  $ cd blogpost
+  $ ng g component home
+```
 
-## Build
+As we want to be able to display either the home page, either the post creation page, either the post detail page, we will need 3 routes.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Instead of declaring our routes directly in the app module, we will create a specific file:
 
-## Running unit tests
+app.routes.ts:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```javascript
+  import { ModuleWithProviders } from '@angular/core';
+  import { Routes, RouterModule } from '@angular/router';
 
-## Running end-to-end tests
+  import { HomeComponent } from './home/home.component';
+  import { BlogpostComponent } from './blogpost/blogpost.component';
+  import { BlogpostCreateComponent } from './blogpost/blogpost.create.component';
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
-Before running the tests make sure you are serving the app via `ng serve`.
+  export const routes: Routes = [
+    { path: '', component: HomeComponent },
+    { path: 'create', component: BlogpostCreateComponent },
+    { path: ':path', component: BlogpostComponent }
+  ];
 
-## Deploying to Github Pages
+  export const appRoutingProviders: any[] = [];
 
-Run `ng github-pages:deploy` to deploy to Github Pages.
+  export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
+```
 
-## Further help
+As you can see, the last route, use a parameter which will allow use to specifiy the post id in the path.
 
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+And we load our routes in the module like this:
+app.module.ts:
+
+```javascript
+  import { RouterModule } from '@angular/router';
+  import {
+    routing,
+    appRoutingProviders
+  } from './app.routes.ts';
+
+  @NgModule({
+    ...
+    imports: [
+      ...
+      RouterModule,
+      routing
+    ],
+    providers: [
+      ...,
+      appRoutingProviders
+    ]
+  })
+```
+
+app.component.html:
+```html
+  <nav>
+    <a routerLink="/">Home</a>
+  </nav>
+  <router-outlet></router-outlet>
+```
+
+# Displaying the list of posts
+
+The list of posts will be displayed by the Home component.
