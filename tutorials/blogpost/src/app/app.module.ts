@@ -3,38 +3,33 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { BlogpostComponent } from './blogpost/blogpost.component';
+import { BlogpostCreateComponent } from './blogpost/blogpost.create.component';
+
 import {
   routing,
   appRoutingProviders
 } from './app.routes.ts';
-import { BlogpostComponent } from './blogpost/blogpost.component';
-import { LoginComponent } from './login/login.component';
-import { BlogpostCreateComponent } from './blogpost/blogpost.create.component';
-import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     BlogpostComponent,
-    LoginComponent,
-    BlogpostCreateComponent,
-    SearchComponent
+    BlogpostCreateComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule,
-    ReactiveFormsModule,
-    routing,
+    routing
   ],
   providers: [
-    appRoutingProviders,
+    appRoutingProviders
   ],
   bootstrap: [AppComponent]
 })

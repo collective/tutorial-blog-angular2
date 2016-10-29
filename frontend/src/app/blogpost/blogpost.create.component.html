@@ -1,6 +1,6 @@
 <div class="content">
   <h2>Add Blogpost</h2>
-  <form #f="ngForm" (ngSubmit)="onSubmit()">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
     <div class="mdl-cell mdl-cell--12-col">
       <div class="mdl-textfield mdl-js-textfield">
         <input class="mdl-textfield__input"
@@ -8,7 +8,7 @@
                name="title"
                id="title"
                required
-               [(ngModel)]="title" />
+               ngModel />
         <label class="mdl-textfield__label"
                for="title">
           Title
@@ -21,7 +21,7 @@
                type="text"
                name="description"
                id="description"
-               [(ngModel)]="description" />
+               ngModel />
         <label class="mdl-textfield__label"
                for="description">
           Summary
@@ -35,7 +35,7 @@
                   rows="10"
                   id="text"
                   name="text"
-                  [(ngModel)]="text"></textarea>
+                  ngModel></textarea>
         <label class="mdl-textfield__label" for="text">
           Text lines...
         </label>

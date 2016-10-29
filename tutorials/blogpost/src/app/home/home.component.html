@@ -1,0 +1,12 @@
+<button [routerLink]="['/create']">
+Create Blog Post
+</button>
+<div *ngFor="let blogPost of blogPosts">
+  <h2>{{blogPost.title}}</h2>
+  <div>
+    {{blogPost.description}}
+  </div>
+  <a [routerLink]="blogPost.postId">
+    Continue reading...
+  </a>
+</div>

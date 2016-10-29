@@ -1,0 +1,32 @@
+<h2>Add Blogpost</h2>
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <div>
+    <label for="title">Title</label>
+    <input
+    type="text"
+    name="title"
+    id="title"
+    required
+    ngModel />
+  </div>
+  <div>
+    <label for="description">Summary</label>
+    <input
+    type="text"
+    name="description"
+    id="description"
+    ngModel />
+  </div>
+  <div>
+    <label>Text lines...</label>
+    <textarea
+    type="text"
+    rows="10"
+    id="text"
+    name="text"
+    ngModel></textarea>
+  </div>
+  <button id="create-blogpost-button">
+    Create
+  </button>
+</form>
