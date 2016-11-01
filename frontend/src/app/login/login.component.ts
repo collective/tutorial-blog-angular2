@@ -9,13 +9,11 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent {
   authentication_error = false;
-  @Input() username = '';
-  @Input() password = '';
 
   constructor(private loginService: LoginService, private router: Router) {}
 
-  onLogin() {
-    this.loginService.login(this.username, this.password).subscribe(
+  onSubmit(form) {
+    this.loginService.login(form.username, form.password).subscribe(
       data => {
         if (data === true) {
           this.router.navigate(['/']);

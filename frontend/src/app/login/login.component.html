@@ -1,24 +1,23 @@
 <div class="login-form">
 
-  <form #form="ngForm">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
 		<div class="mdl-card mdl-shadow--6dp">
 			<div class="mdl-card__title brand-main--background mdl-color-text--white">
 				<h2 class="mdl-card__title-text">Log in</h2>
 			</div>
 	  	<div class="mdl-card__supporting-text">
         <mdl-textfield type="text" name="username" id="username" label="username"
-                     [(ngModel)]="username" floating-label>
+                       ngModel floating-label>
         </mdl-textfield>
 
         <mdl-textfield type="password" name="password" id="password" label="password"
-                     [(ngModel)]="password"
-                     (keydown.Enter)="onLogin()"
-                     floating-label>
+                       (keydown.Enter)="onSubmit(form.value)"
+                       ngModel floating-label>
         </mdl-textfield>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
 				<button class="mdl-button brand-main--background mdl-color-text--white mdl-js-button mdl-js-ripple-effect"
-                (click)="onLogin()">Log in</button>
+                (click)="onSubmit(form.value)">Log in</button>
         <span [hidden]="!authentication_error"
               class="error">
           Authentication failed!

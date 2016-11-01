@@ -57,7 +57,7 @@ describe('Component: Login', () => {
 
   it('should authenticate', () => {
     let login = this.fixture.componentInstance;
-    login.onLogin({username: 'eric', password: 'secret'});
+    login.onSubmit({username: 'eric', password: 'secret'});
     expect(login.loginService.isLoggedIn()).toBeTruthy();
   });
 
