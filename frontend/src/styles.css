@@ -1,6 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 header.mdl-layout__header--scroll {
-  background: #424242;
+  background-color: #424242;
+}
+
+.brand-main--background {
+  background: #424242
+}
+.brand-main--background:hover {
+  background: #515151
 }
 
 .add-button {
@@ -65,7 +72,10 @@ header.mdl-layout__header--scroll {
   margin: 2em auto;
 }
 
-.error{color:rgb(213, 0, 0);}
+.error {
+  color:rgb(213, 0, 0);
+  padding-left: 10px;
+}
 
 form .mdl-textfield {
   width: 100%;

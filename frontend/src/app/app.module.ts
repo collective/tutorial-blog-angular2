@@ -15,6 +15,7 @@ import { BlogpostComponent } from './blogpost/blogpost.component';
 import { LoginComponent } from './login/login.component';
 import { BlogpostCreateComponent } from './blogpost/blogpost.create.component';
 import { SearchComponent } from './search/search.component';
+import { MdlModule } from 'angular2-mdl';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SearchComponent } from './search/search.component';
     SearchComponent
   ],
   imports: [
+    MdlModule,
     BrowserModule,
     FormsModule,
     HttpModule,

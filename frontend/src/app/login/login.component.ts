@@ -1,23 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [LoginService],
 })
 export class LoginComponent {
   authentication_error = false;
+  @Input() username = '';
+  @Input() password = '';
+
   constructor(private loginService: LoginService, private router: Router) {}
 
-  onSubmit(form) {
-    this.loginService.login(form.username, form.password).subscribe(
+  onLogin() {
+    this.loginService.login(this.username, this.password).subscribe(
       data => {
         if (data === true) {
-          this.router.navigate(['']);
+          this.router.navigate(['/']);
         }
       },
       err => {

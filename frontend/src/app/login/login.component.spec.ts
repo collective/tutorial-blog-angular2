@@ -17,6 +17,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { LoginService } from './login.service';
 import { LoginComponent } from './login.component';
+import { MdlModule } from 'angular2-mdl';
 
 describe('Component: Login', () => {
 
@@ -38,6 +39,7 @@ describe('Component: Login', () => {
         },
       ],
       imports: [
+        MdlModule,
         RouterTestingModule,
         FormsModule
       ]
@@ -55,7 +57,7 @@ describe('Component: Login', () => {
 
   it('should authenticate', () => {
     let login = this.fixture.componentInstance;
-    login.onSubmit({username: 'eric', password: 'secret'});
+    login.onLogin({username: 'eric', password: 'secret'});
     expect(login.loginService.isLoggedIn()).toBeTruthy();
   });
 
