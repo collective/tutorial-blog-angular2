@@ -1,27 +1,28 @@
-<div class="mdl-card plone-login">
-  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+<div class="login-form">
 
-    <div [hidden]="!authentication_error"
-             class="error">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+		<div class="mdl-card mdl-shadow--6dp">
+			<div class="mdl-card__title brand-main--background mdl-color-text--white">
+				<h2 class="mdl-card__title-text">Log in</h2>
+			</div>
+	  	<div class="mdl-card__supporting-text">
+        <mdl-textfield type="text" name="username" id="username" label="username"
+                       ngModel floating-label>
+        </mdl-textfield>
+
+        <mdl-textfield type="password" name="password" id="password" label="password"
+                       (keydown.Enter)="onSubmit(form.value)"
+                       ngModel floating-label>
+        </mdl-textfield>
+			</div>
+			<div class="mdl-card__actions mdl-card--border">
+				<button class="mdl-button brand-main--background mdl-color-text--white mdl-js-button mdl-js-ripple-effect"
+                (click)="onSubmit(form.value)">Log in</button>
+        <span [hidden]="!authentication_error"
+              class="error">
           Authentication failed!
-    </div>
-    <div class="mdl-card__supporting-text">
-      <div class="mdl-textfield mdl-js-textfield">
-        <input class="mdl-textfield__input" type="text" name="username"  id="username"
-         required ngModel/>
-        <label class="mdl-textfield__label" for="username">Username</label>
-      </div>
-      <div class="mdl-textfield mdl-js-textfield">
-        <input class="mdl-textfield__input" type="password" name="password" id="password"
-        required ngModel />
-        <label class="mdl-textfield__label" for="password">Password</label>
-      </div>
-    </div>
-    <div class="mdl-card__actions">
-      <button class="mdl-button mdl-js-button mdl-button--raised">
-        Log in
-      </button>
-    </div>
+        </span>
+			</div>
+		</div>
   </form>
 </div>
-

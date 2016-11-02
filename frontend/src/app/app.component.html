@@ -12,7 +12,8 @@
       <!-- Navigation -->
       <nav class="mdl-navigation">
         <a [routerLink]="['/']" class="mdl-navigation__link" href="/">Home</a>
-        <a [routerLink]="['/login']" class="mdl-navigation__link" href="login">Login</a>
+        <a *ngIf="!LoginService.isLoggedIn()" [routerLink]="['/login']" class="mdl-navigation__link" href="login">Login</a>
+        <a *ngIf="LoginService.isLoggedIn()" [routerLink]="['/login']" class="mdl-navigation__link" href="login" (click)="LoginService.logout()">Logout</a>
       </nav>
       <!-- Search -->
       <app-search></app-search>
