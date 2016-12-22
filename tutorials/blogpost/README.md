@@ -46,7 +46,7 @@ app.module.ts:
   import {
     routing,
     appRoutingProviders
-  } from './app.routes.ts';
+  } from './app.routes';
 
   @NgModule({
     ...
