@@ -12,7 +12,7 @@ import { BlogpostCreateComponent } from './blogpost/blogpost.create.component';
 import {
   routing,
   appRoutingProviders
-} from './app.routes.ts';
+} from './app.routes';
 
 @NgModule({
   declarations: [
