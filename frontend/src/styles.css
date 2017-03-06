@@ -22,7 +22,7 @@ header.mdl-layout__header--scroll {
 .demo-card-wide > .mdl-card__title {
   color: #fff;
   height: 176px;
-  background: url('https://kitconcept.com/sunrise.jpg') center / cover;
+  background-color: #1C4257;
 }
 .demo-card-wide > .mdl-card__menu {
   color: #fff;
@@ -33,9 +33,8 @@ header.mdl-layout__header--scroll {
   height: 600px;
   width: auto;
   background-color: #f3f3f3;
-  background: url('https://kitconcept.com/sunrise.jpg') center 30% no-repeat;
   background-size: cover;
-  color: #f2f2f2;
+  color: #1C4257;
 }
 
 .plone-blogpost-header .slogan {

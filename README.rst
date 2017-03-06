@@ -39,6 +39,8 @@ Setup the Backend
 
 The backend can be either a plain Plone 5 site with plone.restapi installed, or a plone.server instance with pserver.cms.
 
+Backend setup is::
+
   $ virtualenv restapi
   $ source restapi/bin/activate
   $ cd backend
